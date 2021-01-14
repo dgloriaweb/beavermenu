@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+        <div class="hero">Food And Drink</div>
       <ul>
             <li v-for="item in menu.menu.items" :key="item.id">
               <Menu v-bind:item="item" />
@@ -44,6 +45,12 @@ export default {
 </script>
 
 <style  scoped>
+.hero{
+  font-size:10rem;
+    font-family:'Xanh Mono', sans-serif;
+    color:rgb(161 218 201);
+}
+
 .container {
   margin: auto;
 }

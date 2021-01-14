@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-   <div id="nav">
-    <router-link to="/">Meals List</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <MealsList/>
   </div>
 </template>
 
 <script>
-
-
+import MealsList from './components/MealsList.vue'
 
 export default {
   name: 'App',
   components: {
-
+    MealsList
   },
   data() {
     return {

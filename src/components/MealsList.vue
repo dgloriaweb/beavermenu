@@ -3,8 +3,8 @@
     <div class="container">
       <ul>
         <li v-for="meal in menu" :key="meal.id">
-          <ul class="sec">
-            <li class="second" v-for="item in meal.items" :key="item.id">
+          <ul >
+            <li v-for="item in meal.items" :key="item.id">
               <Menu v-bind:item="item" />
             </li>
           </ul>
@@ -15,7 +15,9 @@
 </template>
 
 <script>
+import Menu from "./Menu.vue";
 export default {
+
   name: "ItemsList",
   data() {
     return {
@@ -40,9 +42,32 @@ export default {
     },
   },
   components: {
+    Menu,
   },
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+li {
+  font-family: "Hachi Maru Pop";
+}
+.container {
+  margin: auto;
+}
+
+ul {
+  border: 1px solid black;
+  display: grid;
+  list-style-type: none;
+  padding: 1rem;
+  margin: 0;
+  grid-row-gap: 2rem;
+  grid-column-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+li {
+  background: rgb(161 218 201);
+  list-style-type: none;
+  grid-row-gap: 1rem;
+}
 </style>

@@ -44,15 +44,10 @@ export default {
 </script>
 
 <style  scoped>
-li {
-  font-family: "Hachi Maru Pop";
-}
 .container {
   margin: auto;
 }
-
 ul {
-  border: 1px solid black;
   display: grid;
   list-style-type: none;
   padding: 1rem;
@@ -62,6 +57,7 @@ ul {
   grid-template-columns: repeat(3, 1fr);
 }
 li {
+  font-family: "Hachi Maru Pop";
   background: rgb(161 218 201);
   list-style-type: none;
   grid-row-gap: 1rem;

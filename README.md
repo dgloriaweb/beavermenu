@@ -1,4 +1,4 @@
-# 2021vuecourse
+# beavermenu
 
 ## Project setup
 ```

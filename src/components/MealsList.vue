@@ -2,13 +2,9 @@
   <div>
     <div class="container">
       <ul>
-        <li v-for="meal in menu" :key="meal.id">
-          <ul >
-            <li v-for="item in meal.items" :key="item.id">
+            <li v-for="item in menu.menu.items" :key="item.id">
               <Menu v-bind:item="item" />
             </li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>

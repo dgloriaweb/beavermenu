@@ -2,7 +2,10 @@
   <div>
     <img :src="posterImage" :alt="item.name" />
     <div class="itemname">
-      {{ item.name }}
+      <a @click="toggleExpansion(key)" >{{ item.name }}</a>
+       <ul v-show="isExpanded(key)">
+      <li>{{item.details}}</li>
+    </ul>
     </div>
   </div>
 </template>
@@ -18,6 +21,23 @@ export default {
       return `/meals/${this.item.id}`;
     }
   },
+  data() {
+return {
+//isExpanded: false,
+expandedGroup: []
+}
+},
+methods:{
+isExpanded(key) {
+return this.expandedGroup.indexOf(key) !== -1;
+},
+toggleExpansion(key) {
+if (this.isExpanded(key))
+this.expandedGroup.splice(this.expandedGroup.indexOf(key), 1);
+else
+this.expandedGroup.push(key);
+}
+}
 }
 </script>
 

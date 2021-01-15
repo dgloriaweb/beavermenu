@@ -39,7 +39,8 @@ export default {
     fetchData: async function () {
       try {
         const res = await fetch(
-          "https://dev.menu.ninja/api/menu/156?key=8j5vfe%24*pfb**rzt&pretty=1"
+          // "https://dev.menu.ninja/api/menu/156?key=8j5vfe%24*pfb**rzt&pretty=1"
+          "https://babiwes.com/data/data.json"
         );
 
         const apiresource = await res.json();
@@ -84,11 +85,11 @@ li {
   list-style-type: none;
   grid-row-gap: 1rem;
 }
-.reviewContainer{
-  display:block;
-  float:left;
-  text-align:left;
-  max-width:20rem;
-  margin:auto
+.reviewContainer {
+  display: block;
+  float: left;
+  text-align: left;
+  max-width: 20rem;
+  margin: auto;
 }
 </style>

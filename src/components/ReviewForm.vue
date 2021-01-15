@@ -2,9 +2,10 @@
   <div>
     <div class="container">
       <form class="review-form" @submit.prevent="onSubmit">
-        <h3>Review form</h3>
+        <h3>Order Form</h3>
         <label for="name">Name:</label>
         <input type="text" id="name" v-model="name" />
+        <br/>
         <label for="review">Review:</label>
         <textarea
           name=""
@@ -13,6 +14,7 @@
           rows="10"
           v-model="review"
         ></textarea>
+        <br/>
         <label for="rating">Rating:</label>
         <select name="" id="rating" v-model.number="rating">
           <option value="5">5</option>
@@ -21,6 +23,7 @@
           <option value="2">2</option>
           <option value="1">1</option>
         </select>
+        <br/>
         <input type="submit" class="button" value="Submit" />
       </form>
     </div>

@@ -7,8 +7,14 @@
           <Menu v-bind:item="item" />
         </li>
       </ul>
-      <review-list v-if="reviews.length" :reviews="reviews" />
-      <review-form @review-submitted="addReview" />
+      <div class="reviewContainer">
+        <div class="reviews">
+          <review-list v-if="reviews.length" :reviews="reviews" />
+        </div>
+        <div class="form">
+          <review-form @review-submitted="addReview" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -77,5 +83,9 @@ li {
   font-family: "Hachi Maru Pop";
   list-style-type: none;
   grid-row-gap: 1rem;
+}
+.reviewContainer{
+  max-width:20rem;
+  margin:auto
 }
 </style>

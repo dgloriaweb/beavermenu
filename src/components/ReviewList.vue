@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="review-container">
-      <h2>Review List</h2>
+      <h2>Orders</h2>
       <ul>
         <li v-for="(review, index) in reviews" :key="index">
           {{ review.name }} gave this {{ review.rating }} stars

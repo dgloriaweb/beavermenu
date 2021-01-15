@@ -2,7 +2,7 @@
   <div>
     <img :src="posterImage" :alt="item.name" />
     <div class="itemname">
-      <a @click="toggleExpansion(key)" @mouseover="test()">{{ item.name }}</a>
+      <a @click="toggleExpansion(key)" >{{ item.name }}</a>
       <div
         class="detailContainer"
         v-show="isExpanded(key)"
@@ -56,10 +56,7 @@ export default {
       else
         this.expandedGroup.push(key);
     },
-     test() {      
-        this.name.color='red';
-      
-    }
+     
   }
 }
 </script>

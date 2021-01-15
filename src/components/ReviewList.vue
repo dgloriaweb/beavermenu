@@ -4,10 +4,14 @@
       <h2>Orders</h2>
       <ul>
         <li v-for="(review, index) in reviews" :key="index">
-          {{ review.name }} gave this {{ review.rating }} stars
+          <b>{{ review.name }}</b> of company <b>{{ review.company }}</b> gave sent this <b>enquiry</b>:
           <br />
+          <div class="reviewContent" >
+
           "{{ review.review }}"
+          </div>
           <br />
+          ...and gave <b>{{ review.rating }} stars</b>
         </li>
       </ul>
     </div>
@@ -26,5 +30,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.reviewContent{
+  border:1px solid rgb(161 218 201);
+  padding: 1rem;
+}
 </style>

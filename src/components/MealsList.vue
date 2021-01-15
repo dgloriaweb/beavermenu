@@ -85,6 +85,9 @@ li {
   grid-row-gap: 1rem;
 }
 .reviewContainer{
+  display:block;
+  float:left;
+  text-align:left;
   max-width:20rem;
   margin:auto
 }

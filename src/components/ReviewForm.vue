@@ -4,9 +4,15 @@
       <form class="review-form" @submit.prevent="onSubmit">
         <h3>Order Form</h3>
         <label for="name">Name:</label>
+        <br/>
         <input type="text" id="name" v-model="name" />
         <br/>
-        <label for="review">Review:</label>
+        <label for="name">Company:</label>
+        <br/>
+        <input type="text" id="name" v-model="company" />
+        <br/>
+        <label for="review">Enquiry:</label>
+        <br/>
         <textarea
           name=""
           id="review"
@@ -34,25 +40,28 @@
 export default {
   data() {
     return {
-      name: '',
-      review: '',
-      rating: null
+      name: 'Evan You',
+      company: 'Vue',
+      review: 'I would like to get price offer for 1000 cheesecakes by 2nd Feb 2021. Thanks',
+      rating: 5
     }
   },
   methods: {
     onSubmit() {
-      if (this.name === '' || this.review === '' || this.rating === null) {
+      if (this.name === '' || this.company === '' || this.review === '' || this.rating === null) {
         alert('Review is incomplete. Please fill out every field.')
         return
       }
       let productReview = {
         name: this.name,
+        company: this.company,
         review: this.review,
         rating: this.rating,
       }
       this.$emit('review-submitted', productReview)
 
       this.name = ''
+      this.company = ''
       this.review = ''
       this.rating = null
     }

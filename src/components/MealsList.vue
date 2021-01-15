@@ -39,8 +39,8 @@ export default {
     fetchData: async function () {
       try {
         const res = await fetch(
-          // "https://dev.menu.ninja/api/menu/156?key=8j5vfe%24*pfb**rzt&pretty=1"
-          "https://babiwes.com/data/data.json"
+           "https://dev.menu.ninja/api/menu/156?key=8j5vfe%24*pfb**rzt&pretty=1"
+          //"https://babiwes.com/data/data.json"
         );
 
         const apiresource = await res.json();

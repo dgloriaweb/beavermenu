@@ -3,7 +3,7 @@
     <div class="container">
         <div class="hero">Food And Drink</div>
       <ul>
-            <li v-for="item in menu.menu.items" :key="item.id">
+            <li v-for="(item,index) in data.items" :key="index">
               <Menu v-bind:item="item" />
             </li>
       </ul>
@@ -18,7 +18,7 @@ export default {
   name: "ItemsList",
   data() {
     return {
-      menu: [],
+      data: [],
     };
   },
   created: function () {
@@ -32,7 +32,7 @@ export default {
         );
 
         const apiresource = await res.json();
-        this.menu = apiresource;
+        this.data = apiresource.menu;
       } catch (e) {
         console.log(e);
       }

@@ -40,6 +40,7 @@ export default {
   },
   data() {
     return {
+      key:0,
       //isExpanded: false,
       expandedGroup: []
     }
@@ -67,10 +68,11 @@ export default {
   width: 100%;
 }
 .detailContainer{
-  min-height:10rem;
+   background-color:#a1dac9;
+ min-height:10rem;
 }
 .priceContainer {
-  background:  rgba(255,255,255,0.5) url('../assets/images/tag.png') no-repeat left;
+  background:   url('../assets/images/tag.png') no-repeat left;
   background-size: 40%;
    min-height:5rem;
    text-align:left;
@@ -81,9 +83,11 @@ export default {
   padding-top: 1.5rem;
 }
 .details {
+  background-color:rgba(255,255,255,0.5);
   padding: 1rem;
   list-style-type: none;
   font-family: Monotype;
   font-weight: 300;
+  color:black;
 }
 </style>

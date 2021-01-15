@@ -1,24 +1,29 @@
 <template>
   <div>
     <div class="container">
-        <div class="hero">Food And Drink</div>
+      <div class="hero">Food And Drink</div>
       <ul>
-            <li v-for="(item,index) in data.items" :key="index">
-              <Menu v-bind:item="item" />
-            </li>
+        <li v-for="(item, index) in data.items" :key="index">
+          <Menu v-bind:item="item" />
+        </li>
       </ul>
+      <review-list v-if="reviews.length" :reviews="reviews" />
+      <review-form @review-submitted="addReview" />
     </div>
   </div>
 </template>
 
 <script>
 import Menu from "./Menu.vue";
+import ReviewForm from "./ReviewForm.vue";
+import ReviewList from "./ReviewList.vue";
 export default {
 
   name: "ItemsList",
   data() {
     return {
       data: [],
+      reviews: []
     };
   },
   created: function () {
@@ -37,18 +42,23 @@ export default {
         console.log(e);
       }
     },
+    addReview(review) {
+      this.reviews.push(review)
+    }
   },
   components: {
     Menu,
+    ReviewForm,
+    ReviewList
   },
 }
 </script>
 
 <style  scoped>
-.hero{
-  font-size:10rem;
-    font-family:'Xanh Mono', sans-serif;
-    color:rgb(161 218 201);
+.hero {
+  font-size: 10rem;
+  font-family: "Xanh Mono", sans-serif;
+  color: rgb(161 218 201);
 }
 
 .container {

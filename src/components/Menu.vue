@@ -2,10 +2,23 @@
   <div>
     <img :src="posterImage" :alt="item.name" />
     <div class="itemname">
-      <a @click="toggleExpansion(key)" >{{ item.name }}</a>
-       <ul v-show="isExpanded(key)">
-      <li>{{item.details}}</li>
-    </ul>
+      <a @click="toggleExpansion(key)">{{ item.name }}</a>
+      <div
+        class="detailContainer"
+        v-show="isExpanded(key)"
+        :style="{
+          backgroundImage: 'url(' + detailImage + ')',
+          backgroundSize: 'cover',
+        }"
+      >
+        <div class="details">{{ item.details }}</div>
+        <div class="priceContainer">
+          <div class="price">
+
+           £ {{ item.prices.price.price }}</div>
+          </div>
+        <!-- <div class="details" :style="{backgroundImage:'url('+priceImage+')',backgroundSize: 'cover'}">{{ item.prices.price.price }}</div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -17,27 +30,31 @@ export default {
     posterImage: function () {
       return `${this.item.image}`;
     },
+    detailImage: function () {
+      return `${this.item.image2}`;
+    },
+    
     itemPath: function () {
       return `/meals/${this.item.id}`;
     }
   },
   data() {
-return {
-//isExpanded: false,
-expandedGroup: []
-}
-},
-methods:{
-isExpanded(key) {
-return this.expandedGroup.indexOf(key) !== -1;
-},
-toggleExpansion(key) {
-if (this.isExpanded(key))
-this.expandedGroup.splice(this.expandedGroup.indexOf(key), 1);
-else
-this.expandedGroup.push(key);
-}
-}
+    return {
+      //isExpanded: false,
+      expandedGroup: []
+    }
+  },
+  methods: {
+    isExpanded(key) {
+      return this.expandedGroup.indexOf(key) !== -1;
+    },
+    toggleExpansion(key) {
+      if (this.isExpanded(key))
+        this.expandedGroup.splice(this.expandedGroup.indexOf(key), 1);
+      else
+        this.expandedGroup.push(key);
+    }
+  }
 }
 </script>
 
@@ -46,7 +63,27 @@ this.expandedGroup.push(key);
   font-size: 1.3rem;
   font-weight: bold;
 }
-.image{
-    width:100%;
+.image {
+  width: 100%;
+}
+.detailContainer{
+  min-height:10rem;
+}
+.priceContainer {
+  background:  rgba(255,255,255,0.5) url('../assets/images/tag.png') no-repeat left;
+  background-size: 40%;
+   min-height:5rem;
+   text-align:left;
+   font-size:1rem;
+   text-indent:4rem;
+}
+.price{
+  padding-top: 1.5rem;
+}
+.details {
+  padding: 1rem;
+  list-style-type: none;
+  font-family: Monotype;
+  font-weight: 300;
 }
 </style>

@@ -65,7 +65,6 @@ ul {
 }
 li {
   font-family: "Hachi Maru Pop";
-  background: rgb(161 218 201);
   list-style-type: none;
   grid-row-gap: 1rem;
 }

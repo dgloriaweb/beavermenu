@@ -1,11 +1,15 @@
 <template>
   <div>
-    <img class="productImage" :src="posterImage" :alt="item.name" />
-    <div class="itemname">
-      <a @click="toggleExpansion(key)" class="name">{{ item.name }}</a>
+    <div v-if="!isOpen(key)">
+      <img class="productImage" :src="posterImage" :alt="item.name" />
+      <div class="itemname">
+        <a @click="toggleModal(key)" class="name shadow-lg">{{ item.name }}</a>
+      </div>
+    </div>
+    <div v-else class="overlay ">
       <div
         class="detailContainer"
-        v-show="isExpanded(key)"
+        v-show="isOpen(key)"
         :style="{
           backgroundImage: 'url(' + detailImage + ')',
           backgroundSize: 'cover',
@@ -15,7 +19,7 @@
         <div class="priceContainer">
           <div class="price">£ {{ item.prices.price.price }}</div>
         </div>
-        <!-- <div class="details" :style="{backgroundImage:'url('+priceImage+')',backgroundSize: 'cover'}">{{ item.prices.price.price }}</div> -->
+        <button class="closebutton" @click="toggleModal(key)">Close</button>
       </div>
     </div>
   </div>
@@ -39,20 +43,20 @@ export default {
   data() {
     return {
       key: 0,
-      //isExpanded: false,
-      expandedGroup: [],
+      //isOpen: false,
+      modalGroup: [],
       name: ''
     }
   },
   methods: {
-    isExpanded(key) {
-      return this.expandedGroup.indexOf(key) !== -1;
+    isOpen(key) {
+      return this.modalGroup.indexOf(key) !== -1;
     },
-    toggleExpansion(key) {
-      if (this.isExpanded(key))
-        this.expandedGroup.splice(this.expandedGroup.indexOf(key), 1);
+    toggleModal(key) {
+      if (this.isOpen(key))
+        this.modalGroup.splice(this.modalGroup.indexOf(key), 1);
       else
-        this.expandedGroup.push(key);
+        this.modalGroup.push(key);
     },
 
   }
@@ -68,7 +72,7 @@ export default {
   width: 100%;
 }
 .detailContainer {
-  background-color: #a1dac9;
+  display:grid;
   min-height: 10rem;
 }
 .priceContainer {
@@ -77,17 +81,20 @@ export default {
   min-height: 5rem;
   text-align: left;
   font-size: 1rem;
-  text-indent: 4rem;
+  text-indent: 3.2rem;
 }
 .price {
-  padding-top: 1.5rem;
+  padding-top: 1.8rem;
+  color:black;
+  font-size:0.8rem;
 }
 .details {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1rem;
   list-style-type: none;
-  font-family: Monotype;
-  font-weight: 300;
+  font-family: "Xanh Mono", sans-serif;
+
+  font-weight: 800;
   color: black;
 }
 .name {
@@ -98,8 +105,14 @@ export default {
   color: black;
   cursor: pointer;
 }
-.productImage{
-  max-width:100%;
+.productImage {
+  max-width: 100%;
 }
-
+.closebutton{
+  color:white;
+  background:#288267;
+}
+.overlay{
+  background: rgb(161 218 201);
+}
 </style>

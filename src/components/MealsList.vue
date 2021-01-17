@@ -70,7 +70,6 @@ export default {
 
 .container {
   margin: auto;
-  padding:5rem;
   max-width:83%;
 }
 ul {

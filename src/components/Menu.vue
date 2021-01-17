@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="posterImage" :alt="item.name" />
+    <img class="productImage" :src="posterImage" :alt="item.name" />
     <div class="itemname">
       <a @click="toggleExpansion(key)" class="name">{{ item.name }}</a>
       <div
@@ -98,4 +98,8 @@ export default {
   color: black;
   cursor: pointer;
 }
+.productImage{
+  max-width:100%;
+}
+
 </style>

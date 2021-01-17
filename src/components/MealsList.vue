@@ -70,21 +70,24 @@ export default {
 
 .container {
   margin: auto;
+  padding:5rem;
+  max-width:83%;
 }
 ul {
   display: grid;
   list-style-type: none;
   padding: 1rem;
   margin: 0;
-  grid-row-gap: 2rem;
+  grid-row-gap: 1rem;
   grid-column-gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill,minmax(296px, 1fr));
+  grid-template-rows: auto;
 }
 li {
   font-family: "Hachi Maru Pop";
   list-style-type: none;
-  grid-row-gap: 1rem;
 }
+
 .reviewContainer {
   display: block;
   float: left;

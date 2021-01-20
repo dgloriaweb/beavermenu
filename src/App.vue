@@ -29,7 +29,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin: auto;
-  max-width: 70%;
+ 
+}
+
+@media screen and (min-width: 992px) {
+ #app {
+    max-width:70%
+  }
 }
 #nav {
   padding: 30px;

@@ -74,4 +74,7 @@ export default {
 input, textarea {
   border: .1rem dotted grey;
 }
+h3{
+  font-weight: 800;
+}
 </style>

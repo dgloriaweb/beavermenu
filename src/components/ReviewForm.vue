@@ -69,5 +69,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+
+input, textarea {
+  border: .1rem dotted grey;
+}
 </style>

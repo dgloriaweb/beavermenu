@@ -63,7 +63,7 @@ export default {
 
 <style  scoped>
 .hero {
-  font-size: 10rem;
+  font-size: 8rem;
   font-family: "Xanh Mono", sans-serif;
   color: rgb(161 218 201);
 }
